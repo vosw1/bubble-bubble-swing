@@ -2,6 +2,7 @@
 
 1. 환경 
 - JDK 21 
+- 라이브러리 : gradle, lombok
 - version = '1.0-SNAPSHOT' 
 - tool : intellij 2023.3
 
