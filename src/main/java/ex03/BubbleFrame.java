@@ -1,4 +1,4 @@
-package ex02;
+package ex03;
 
 import javax.swing.*;
 import java.awt.event.KeyAdapter;
@@ -29,8 +29,8 @@ public class BubbleFrame extends JFrame {
         add(player); // 붙이기
     }
 
-    private  void initSetting() {
-        setSize(1000,640);
+    private void initSetting() {
+        setSize(1000, 640);
         setLayout(null); // absolute 레이아웃(자유롭게 그림을 그릴 수 있음)
         setLocationRelativeTo(null); // 창이 가운데 뜸
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -43,19 +43,37 @@ public class BubbleFrame extends JFrame {
             모두 다 사용하지 않으면 오류가 터짐 -> 어댑터 패턴 사용
             * */
 
+
+            //키보드 이벤트 핸들러
             @Override
             public void keyPressed(KeyEvent e) {
                 //System.out.println(e.getKeyCode());
                 // switch문을 사용한 가정법
                 switch (e.getKeyCode()) {
                     case KeyEvent.VK_LEFT:
-                        player.left();
+                        if (!player.isLeft()) {
+                            player.left();
+                        }
                         break;
                     case KeyEvent.VK_RIGHT:
-                        player.right();
+                        if (!player.isRight()) {
+                            player.right();
+                        }
                         break;
                     case KeyEvent.VK_UP:
                         player.up();
+                        break;
+                }
+            }
+            //키보드 해제 이벤트 핸들러
+            @Override
+            public void keyReleased(KeyEvent e) {
+                switch (e.getKeyCode()) {
+                    case KeyEvent.VK_LEFT:
+                        player.setLeft(false);
+                        break;
+                    case KeyEvent.VK_RIGHT:
+                        player.setRight(false);
                         break;
                 }
             }
