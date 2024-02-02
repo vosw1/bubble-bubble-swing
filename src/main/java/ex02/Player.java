@@ -45,6 +45,7 @@ public class Player extends JLabel implements Moveable {
         setLocation(x, y);
     }
 
+    // 이벤트 핸들러
     @Override
     public void left() {
         setIcon(playerL); // 바라보는 방향의 이미지 설정
@@ -61,13 +62,14 @@ public class Player extends JLabel implements Moveable {
 
     @Override
     public void up() {
-        y = y + 10;
+
+        y = y - 10;
         setLocation(x, y);
     }
 
     @Override
     public void down() {
-        y = y - 10;
+        y = y + 10;
         setLocation(x, y);
     }
 }
