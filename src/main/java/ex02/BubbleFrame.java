@@ -1,15 +1,18 @@
 package ex02;
 
 import javax.swing.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class BubbleFrame extends JFrame {
 
     private JLabel backgroundMap;
-    private Player player; // 붙여널기
+    private Player player; // 플레이어 객체
 
     public BubbleFrame() {
         initObject();
         initSetting();
+        initListner();
         setVisible(true);
     }
 
@@ -32,4 +35,31 @@ public class BubbleFrame extends JFrame {
         setLocationRelativeTo(null); // 창이 가운데 뜸
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+
+    private void initListner() {
+        addKeyListener(new KeyAdapter() {// 키 리스너 등록
+            /*
+            3가지 메서드중 keyPressed만 필요함
+            모두 다 사용하지 않으면 오류가 터짐 -> 어댑터 패턴 사용
+            * */
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                System.out.println(e.getKeyCode());
+                // switch문을 사용한 가정법
+                switch (e.getKeyCode()) {
+                    case KeyEvent.VK_LEFT:
+                        player.left();
+                        break;
+                    case KeyEvent.VK_RIGHT:
+                        player.right();
+                        break;
+                    case KeyEvent.VK_UP:
+                        player.up();
+                        break;
+                }
+            }
+        });
+    }
+
 }
