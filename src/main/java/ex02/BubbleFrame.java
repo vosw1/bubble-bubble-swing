@@ -1,12 +1,10 @@
-package ex01;
+package ex02;
 
 import javax.swing.*;
 
 public class BubbleFrame extends JFrame {
 
     private JLabel backgroundMap;
-    private Player player; // 붙여널기
-
     public BubbleFrame() {
         initObject();
         initSetting();
@@ -18,12 +16,12 @@ public class BubbleFrame extends JFrame {
     }
 
     private void initObject() {
-        //Label 안에 이미지 넣기
         backgroundMap = new JLabel(new ImageIcon("src/_images/backgroundMap.png")); // 안보임
         setContentPane(backgroundMap); // JPanel = JLabel
-
-        player = new Player(); // 플레이어 띄우기
-        add(player); // 붙이기
+        //backgroundMap.setLocation(300, 300);
+        //backgroundMap.setSize(100,100); //글씨 크기 조정
+        //backgroundMap.setSize(1000,600);
+        //add(backgroundMap); // JFrame에 JLabel 그리기 -> 위치가 없어서 안보임
     }
 
     private  void initSetting() {
