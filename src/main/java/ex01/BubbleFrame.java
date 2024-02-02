@@ -16,12 +16,13 @@ public class BubbleFrame extends JFrame {
     }
 
     private void initObject() {
-        backgroundMap = new JLabel("안녕"); // 안보임
-        backgroundMap.setLocation(300, 300);
-        backgroundMap.setSize(100,100); //글씨 크기 조정
+        backgroundMap = new JLabel(new ImageIcon("src/_images/backgroundMap.png")); // 안보임
+        //backgroundMap.setLocation(300, 300);
+        //backgroundMap.setSize(100,100); //글씨 크기 조정
+
+        backgroundMap.setSize(1000,600);
 
         add(backgroundMap); // JFrame에 JLabel 그리기 -> 위치가 없어서 안보임
-
     }
 
     private  void initSetting() {
