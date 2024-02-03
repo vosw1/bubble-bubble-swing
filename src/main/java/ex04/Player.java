@@ -26,6 +26,7 @@ public class Player extends JLabel implements Moveable {
     private boolean right;
     private boolean up;
     private boolean down;
+
     public Player() {
         initObject();
         initSetting();
@@ -98,10 +99,23 @@ public class Player extends JLabel implements Moveable {
         }).start();
     }
 
+    // 두가지 이상의 상태를 동시에 가질 수 있음
+    // up + left or up + right
+    // 스레드가 필요함
     @Override
     public void up() {
-        y = y - SPEED;
-        setLocation(x, y);
+        up = true;
+        new Thread(() -> {
+            for (int i = 0; i < 100; i++) {
+                y = y - 1; // 너무 빠르면 안되니까 sleep이 필요함
+                setLocation(x, y);
+                try {
+                    Thread.sleep(10);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 
     @Override
