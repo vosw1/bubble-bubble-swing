@@ -44,7 +44,7 @@ public class BubbleFrame extends JFrame {
             * */
 
 
-            //키보드 이벤트 핸들러
+            //키보드 클릭 이벤트 핸들러
             @Override
             public void keyPressed(KeyEvent e) {
                 //System.out.println(e.getKeyCode());
@@ -72,14 +72,10 @@ public class BubbleFrame extends JFrame {
             public void keyReleased(KeyEvent e) {
                 switch (e.getKeyCode()) {
                     case KeyEvent.VK_LEFT:
-                        if (!player.isLeft()) {
-                            player.left();
-                        }
+                        player.setLeft(false);
                         break;
                     case KeyEvent.VK_RIGHT:
-                        if (!player.isRight()) {
-                            player.right();
-                        }
+                        player.setRight(false);
                         break;
                     case KeyEvent.VK_UP:
                         player.up();

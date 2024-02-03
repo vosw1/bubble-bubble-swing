@@ -67,7 +67,7 @@ public class Player extends JLabel implements Moveable {
         System.out.println("left");
         left = true;
         new Thread(() -> {
-            while (true) {
+            while (left) {
                 setIcon(playerL); // 바라보는 방향의 이미지 설정
                 x = x - SPEED;
                 setLocation(x, y);
@@ -86,7 +86,7 @@ public class Player extends JLabel implements Moveable {
         System.out.println("right");
         right = true;
         new Thread(() -> {
-            while (true) {
+            while (right) {
                 setIcon(playerR); // 바라보는 방향의 이미지 설정
                 x = x + SPEED;
                 setLocation(x, y);
