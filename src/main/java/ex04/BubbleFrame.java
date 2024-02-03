@@ -61,7 +61,7 @@ public class BubbleFrame extends JFrame {
                         }
                         break;
                     case KeyEvent.VK_UP:
-                        if(!player.isUp()) {
+                        if(!player.isUp() && !player.isDown()) { // up만 하면 down이 안됨
                             player.up();
                         }
                         break;
