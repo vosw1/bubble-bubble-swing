@@ -105,13 +105,14 @@ public class Player extends JLabel implements Moveable {
     // 스레드가 필요함
     @Override
     public void up() {
+        System.out.println("up");
         up = true;
         new Thread(() -> {
-            for (int i = 0; i < 130 / JUMPSPEED; i++) {
+            for (int i = 0; i < 130/JUMPSPEED; i++) {
                 y = y - JUMPSPEED; // 너무 빠르면 안되니까 sleep이 필요함
                 setLocation(x, y);
                 try {
-                    Thread.sleep(10);
+                    Thread.sleep(5);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -125,13 +126,14 @@ public class Player extends JLabel implements Moveable {
 
     @Override
     public void down() { // 하강 : 올라간 만큼 내려오기
+        System.out.println("down");
         down = true;
         new Thread(() -> {
             for (int i = 0; i < 130 / JUMPSPEED; i++) {
                 y = y + JUMPSPEED; // 너무 빠르면 안되니까 sleep이 필요함
                 setLocation(x, y);
                 try {
-                    Thread.sleep(10);
+                    Thread.sleep(3);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
