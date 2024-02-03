@@ -1,4 +1,4 @@
-package ex04;
+package bubble.test.ex04;
 
 import lombok.Getter;
 import lombok.Setter;

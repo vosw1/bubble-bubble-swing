@@ -1,4 +1,4 @@
-package ex03;
+package bubble.test.ex03;
 
 import javax.swing.*;
 import java.awt.event.KeyAdapter;

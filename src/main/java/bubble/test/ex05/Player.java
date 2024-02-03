@@ -1,4 +1,4 @@
-package ex03;
+package bubble.test.ex05;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -14,26 +14,34 @@ import javax.swing.*;
 @Getter
 @Setter
 public class Player extends JLabel implements Moveable {
+    // 속도 상태
+    private final int SPEED = 4; // 상수명은 대문자로
+    private final int JUMPSPEED = 2; // up, down의 스피드
+
+    private ImageIcon playerR, playerL;
     // 위치 상태
     private int x;
     private int y;
-
     // 움직임 상태
     private boolean left;
     private boolean right;
     private boolean up;
     private boolean down;
-    private ImageIcon playerR, playerL;
+
     public Player() {
         initObject();
-        initSetting();
+        initSetting();initBackgroundPlayerService();
     }
 
-    public boolean isLeft(){
+    private void initBackgroundPlayerService() {
+        new Thread(new BackgrundPlayerService(this)).start();
+    }
+
+    public boolean isLeft() {
         return left;
     }
 
-    public boolean isRight(){
+    public boolean isRight() {
         return right;
     }
 
@@ -43,7 +51,7 @@ public class Player extends JLabel implements Moveable {
     }
 
     private void initSetting() {
-        x = 55; // 오른쪽 이동
+        x = 80; // 오른쪽 이동
         y = 535; // 왼쪽 이동
 
         // 지금은 아무것도 안하고 있기 때문에 모두 false
@@ -62,10 +70,10 @@ public class Player extends JLabel implements Moveable {
     public void left() {
         System.out.println("left");
         left = true;
-        new Thread(()-> {
-            while(true) {
+        new Thread(() -> {
+            while (left) {
                 setIcon(playerL); // 바라보는 방향의 이미지 설정
-                x = x - 1;
+                x = x - SPEED;
                 setLocation(x, y);
                 //try/catch로 묶어야함
                 try {
@@ -81,10 +89,10 @@ public class Player extends JLabel implements Moveable {
     public void right() {
         System.out.println("right");
         right = true;
-        new Thread(()-> {
-            while(true) {
+        new Thread(() -> {
+            while (right) {
                 setIcon(playerR); // 바라보는 방향의 이미지 설정
-                x = x + 1;
+                x = x + SPEED;
                 setLocation(x, y);
                 //try/catch로 묶어야함
                 try {
@@ -96,15 +104,45 @@ public class Player extends JLabel implements Moveable {
         }).start();
     }
 
+    // 두가지 이상의 상태를 동시에 가질 수 있음
+    // up + left or up + right
+    // 스레드가 필요함
     @Override
     public void up() {
-        y = y - 10;
-        setLocation(x, y);
+        System.out.println("up");
+        up = true;
+        new Thread(() -> {
+            for (int i = 0; i < 130/JUMPSPEED; i++) {
+                y = y - JUMPSPEED; // 너무 빠르면 안되니까 sleep이 필요함
+                setLocation(x, y);
+                try {
+                    Thread.sleep(5);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            up = false; // up의 상태가 끝났음
+            down(); // up과 down이 이어짐
+            // up과 down의 메서드를 합쳐서 jump라고 만들어버리면 down만 못함
+            //down이 없으면 윗층에서 떨어지지 못함
+        }).start();
     }
 
     @Override
-    public void down() {
-        y = y + 10;
-        setLocation(x, y);
+    public void down() { // 하강 : 올라간 만큼 내려오기
+        System.out.println("down");
+        down = true;
+        new Thread(() -> {
+            for (int i = 0; i < 130 / JUMPSPEED; i++) {
+                y = y + JUMPSPEED; // 너무 빠르면 안되니까 sleep이 필요함
+                setLocation(x, y);
+                try {
+                    Thread.sleep(3);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            down = false;
+        }).start();
     }
 }

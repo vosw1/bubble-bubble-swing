@@ -1,4 +1,4 @@
-package ex04;
+package bubble.test.ex05;
 
 public interface Moveable {
      void left();
