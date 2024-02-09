@@ -1,4 +1,4 @@
-package bubble.test.ex08;
+package bubble.test.ex09;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -18,6 +18,7 @@ public class Player extends JLabel implements Moveable {
     // 속도 상태
     private final int SPEED = 4; // 상수명은 대문자로
     private final int JUMPSPEED = 2; // up, down의 스피드
+
     // 위치 상태
     private int x;
     private int y;
