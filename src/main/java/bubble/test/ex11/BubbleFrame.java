@@ -1,4 +1,4 @@
-package bubble.test.ex09;
+package bubble.test.ex11;
 
 import javax.swing.*;
 import java.awt.event.KeyAdapter;
@@ -50,6 +50,7 @@ public class BubbleFrame extends JFrame {
                 // switch문을 사용한 가정법
                 switch (e.getKeyCode()) {
                     case KeyEvent.VK_LEFT:
+                        System.out.println("왼쪽 이동");
                         if (!player.isLeft() && !player.isLeftWallCrash()) {
                             player.left(); // 벽에 충돌하지 않았을 때 움직이기
                         }
@@ -67,7 +68,7 @@ public class BubbleFrame extends JFrame {
 
                     case KeyEvent.VK_SPACE:
                         Bubble bubble = new Bubble(player); // 버블 객체 만들기
-                        add(bubble);
+                        add(bubble); // 프레임에 버블 이미지 추가하기
                         break;
                 }
             }
@@ -84,6 +85,12 @@ public class BubbleFrame extends JFrame {
                         break;
                     case KeyEvent.VK_UP:
                         player.up();
+                        break;
+                    case KeyEvent.VK_SPACE:
+                        setFocusable(true);
+                        System.out.println("Adding bubble to frame...");
+                        Bubble bubble = new Bubble(player);
+                        add(bubble);
                         break;
                 }
             }

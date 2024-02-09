@@ -27,12 +27,10 @@ public class Bubble extends JLabel {
     private ImageIcon bubbled; // 적을 가둔 물방울
     private ImageIcon bomb; // 물방울이 터진 상태
 
-    // 생성자
-    public Bubble(Player player) {
-        this.player = player;
+    public Bubble(Player player) { // 플레이어에로부터 가져와야 함
+        this.player = player; // x,y좌표를 만들어낼 수 있음
         initObject();
         initSetting();
-        setVisible(true); // 버블 추가 후에 setVisible 호출
     }
 
     private void initObject() {
@@ -46,12 +44,11 @@ public class Bubble extends JLabel {
         right = false;
         up = false;
 
-        // player의 위치 정보 받아오기
         x = player.getX();
         y = player.getY();
 
         setIcon(bubble); // 초기에는 버블의 상태
-        setSize(50, 50); // 플레이어의 크기와 동일
+        setSize(50, 50); // 버블의 크기 = 플레이어의 크기
 
         state = 0; // 초기 물방울의 상태는 0
     }

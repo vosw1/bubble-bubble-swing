@@ -1,4 +1,4 @@
-package bubble.test.ex08;
+package bubble.test.ex11;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -15,12 +15,12 @@ import javax.swing.*;
 @Setter
 public class Player extends JLabel implements Moveable {
 
-    // 속도 상태
-    private final int SPEED = 4; // 상수명은 대문자로
-    private final int JUMPSPEED = 2; // up, down의 스피드
     // 위치 상태
     private int x;
     private int y;
+
+    // 플레이어의 방향 / 물방울을 쏠 떄 필요함 -> enum을 만듦
+    private PlayerWay playerWay;
 
     // 움직임 상태
     private boolean left;
@@ -31,6 +31,11 @@ public class Player extends JLabel implements Moveable {
     //벽에 충돌한 상태
     private boolean leftWallCrash;
     private boolean rightWallCrash;
+
+    // 속도 상태
+    private final int SPEED = 4; // 상수명은 대문자로
+    private final int JUMPSPEED = 2; // up, down의 스피드
+
     private ImageIcon playerR, playerL;
 
     public Player() {
@@ -58,6 +63,7 @@ public class Player extends JLabel implements Moveable {
         leftWallCrash = false;
         rightWallCrash = false;
 
+        playerWay = playerWay.RIGHT; // 초기설정 : 오른쪽 바라보기
         this.setIcon(playerR);
         setSize(50, 50);
         setLocation(x, y);
@@ -79,6 +85,7 @@ public class Player extends JLabel implements Moveable {
     @Override
     public void left() {
         //System.out.println("left");
+        playerWay = playerWay.LEFT;
         left = true;
         new Thread(() -> {
             while (left) {
@@ -98,6 +105,7 @@ public class Player extends JLabel implements Moveable {
     @Override
     public void right() {
         //System.out.println("right");
+        playerWay = playerWay.RIGHT;
         right = true;
         new Thread(() -> {
             while (right) {
