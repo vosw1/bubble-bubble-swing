@@ -84,8 +84,8 @@ public class Bubble extends JLabel implements Moveable {
                 break;
             }
 
-            // 40~60의 범위의 절대 값
-            if ((Math.abs(x - enemy.getX()) > 45 && Math.abs(x - enemy.getX()) < 60)
+            // 40~60의 범위의 절대 값 -> 10의 차이
+            if ((Math.abs(x - enemy.getX()) < 10)
                     && Math.abs(y - enemy.getY()) > 0 && Math.abs(y - enemy.getY()) < 50) {
                 System.out.println("물방울이 적군과 충돌했습니다");
                 if (enemy.getState() == 0) {
@@ -120,8 +120,8 @@ public class Bubble extends JLabel implements Moveable {
                 break;
             }
 
-            // 40~60의 범위의 절대 값
-            if ((Math.abs(x - enemy.getX()) > 45 && Math.abs(x - enemy.getX()) < 60)
+            // 40~60의 범위의 절대 값 -> 10의 차이
+            if ((Math.abs(x - enemy.getX()) < 10)
                     && Math.abs(y - enemy.getY()) > 0 && Math.abs(y - enemy.getY()) < 50) {
                 System.out.println("물방울이 적군과 충돌했습니다");
                 if (enemy.getState() == 0) {
@@ -166,7 +166,9 @@ public class Bubble extends JLabel implements Moveable {
                 throw new RuntimeException(e);
             }
         }
-        clearBubble();
+        if (state == 0) { // 버블의 상태가 0일때만 터뜨리기
+            clearBubble();
+        }
     }
 
     // 다른데서 호출할 일이 없으면 private
@@ -187,7 +189,7 @@ public class Bubble extends JLabel implements Moveable {
     // 적군을 가두는 것
     @Override
     public void attack() {
-        state = 1; // 적군을 가둔 상태
+        state = 1; // 물방울이 적군을 가둔 상태
         enemy.setState(1); // 적군이 갇힌 상태
         setIcon(bubbled);
         mContext.remove(enemy); // 적군을 메모리에서 지우기
