@@ -65,7 +65,7 @@ public class Bubble extends JLabel implements Moveable {
     }
 
     private void initThread() {
-        // System.out.println("스레드 시작");
+        System.out.println("스레드 시작");
         // 버블은 방향이 왼쪽, 오른쪽 뿐, 동시 동작 없음 -> 스레드 하나만 필요함
         new Thread(() -> {
             if (player.getPlayerWay() == PlayerWay.LEFT) {
@@ -78,7 +78,7 @@ public class Bubble extends JLabel implements Moveable {
 
     @Override
     public void left() {
-        //System.out.println("왼쪽으로 발사");
+        System.out.println("왼쪽으로 발사");
         // 상태
         left = true;
 
@@ -86,10 +86,6 @@ public class Bubble extends JLabel implements Moveable {
         for (int i = 0; i < 400; i++) {
             x--; // 왼쪽 이동은 -
             setLocation(x, y);
-
-            if (backgrundBubbleService.leftWall()) {
-                break;
-            }
 
             // 속도가 너무 빠르니까 조정해주기
             try {
@@ -103,7 +99,7 @@ public class Bubble extends JLabel implements Moveable {
 
     @Override
     public void right() {
-        //System.out.println("오른쪽으로 발사");
+        System.out.println("오른쪽으로 발사");
         // 상태
         right = true;
 
@@ -111,10 +107,6 @@ public class Bubble extends JLabel implements Moveable {
         for (int i = 0; i < 400; i++) {
             x++; // 오른쪽 이동은 +
             setLocation(x, y);
-
-            if (backgrundBubbleService.rightWall()) {
-                break;
-            }
 
             // 속도가 너무 빠르니까 조정해주기
             try {
@@ -135,10 +127,6 @@ public class Bubble extends JLabel implements Moveable {
         while (up) {
             y--; // 위로 이동은 -
             setLocation(x, y);
-
-            if (backgrundBubbleService.topWall()) {
-                break;
-            }
 
             // 속도가 너무 빠르니까 조정해주기
             try {

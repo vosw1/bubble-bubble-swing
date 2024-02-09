@@ -1,7 +1,6 @@
 package bubble.test.ex11;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
@@ -25,29 +24,14 @@ public class BackgrundBubbleService {
 
     // 벽에 충돌을 체크하기
     public boolean leftWall() {
-        Color leftColor = new Color(image.getRGB(bubble.getX() - 10, bubble.getY() + 25));
-        if (leftColor.getRed() == 255 && leftColor.getGreen() == 0 && leftColor.getBlue() == 0) {
-            //System.out.println("왼쪽 벽에 충돌함");
-            return true;
-        }
         return false;
     }
 
     public boolean rightWall() {
-        Color rightColor = new Color(image.getRGB(bubble.getX() + 50 + 15, bubble.getY() + 25));
-        if (rightColor.getRed() == 255 && rightColor.getGreen() == 0 && rightColor.getBlue() == 0) {
-            //System.out.println("오른쪽 벽에 충돌함");
-            return true;
-        }
         return false;
     }
 
     public boolean topWall() {
-        Color topColor = new Color(image.getRGB(bubble.getX() + 25, bubble.getY() - 10));
-        if (topColor.getRed() == 255 && topColor.getGreen() == 0 && topColor.getBlue() == 0) {
-            //System.out.println("위쪽 벽에 충돌함");
-            return true;
-        }
         return false;
     }
 }

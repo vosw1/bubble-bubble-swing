@@ -18,18 +18,20 @@ public class Player extends JLabel implements Moveable {
     // 속도 상태
     private final int SPEED = 4; // 상수명은 대문자로
     private final int JUMPSPEED = 2; // up, down의 스피드
-    private ImageIcon playerR, playerL;
     // 위치 상태
     private int x;
     private int y;
+
     // 움직임 상태
     private boolean left;
     private boolean right;
     private boolean up;
     private boolean down;
+
     //벽에 충돌한 상태
     private boolean leftWallCrash;
     private boolean rightWallCrash;
+    private ImageIcon playerR, playerL;
 
     public Player() {
         initObject();

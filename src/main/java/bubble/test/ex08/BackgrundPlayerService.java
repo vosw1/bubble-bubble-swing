@@ -1,10 +1,16 @@
 package bubble.test.ex08;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
+
+@Getter
+@Setter
 // 백그라운드에서 플레이어를 확인하는 서비스
 // 백그라운드에서 계속 플레이어(메인스레드-키보드 이벤트 처리)를 관찰
 public class BackgrundPlayerService implements Runnable {

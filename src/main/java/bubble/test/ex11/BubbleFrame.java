@@ -50,6 +50,8 @@ public class BubbleFrame extends JFrame {
                 // switch문을 사용한 가정법
                 switch (e.getKeyCode()) {
                     case KeyEvent.VK_LEFT:
+                        //System.out.println("왼쪽 이동");
+
                         if (!player.isLeft() && !player.isLeftWallCrash()) {
                             player.left(); // 벽에 충돌하지 않았을 때 움직이기
                         }
@@ -88,6 +90,7 @@ public class BubbleFrame extends JFrame {
                     case KeyEvent.VK_SPACE:
                         setFocusable(true);
                         //System.out.println("Adding bubble to frame...");
+
                         Bubble bubble = new Bubble(player);
                         add(bubble);
                         break;

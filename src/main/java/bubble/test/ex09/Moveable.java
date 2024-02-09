@@ -1,11 +1,13 @@
 package bubble.test.ex09;
 
 public interface Moveable {
-    void left();
 
-    void right();
+    public abstract void left();
 
-    void up();
+    public abstract void right();
 
-    void down();
+    public abstract void up();
+
+    public abstract void down();
+
 }

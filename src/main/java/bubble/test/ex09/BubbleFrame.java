@@ -67,7 +67,7 @@ public class BubbleFrame extends JFrame {
 
                     case KeyEvent.VK_SPACE:
                         Bubble bubble = new Bubble(player); // 버블 객체 만들기
-                        add(bubble); // 프레임에 버블 이미지 추가하기
+                        add(bubble);
                         break;
                 }
             }
@@ -84,10 +84,6 @@ public class BubbleFrame extends JFrame {
                         break;
                     case KeyEvent.VK_UP:
                         player.up();
-                        break;
-                    case KeyEvent.VK_SPACE:
-                        Bubble bubble = new Bubble(player); // 버블 객체 생성
-                        add(bubble); // 프레임에 버블 추가
                         break;
                 }
             }
