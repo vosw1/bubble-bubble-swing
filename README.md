@@ -13,8 +13,10 @@
 # Tech Stack
 |Tech|Content|
 | :-------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Framework** |![Java](https://img.shields.io/badge/Java-%23ED8B00.svg?style=flat&logo=openjdk&logoColor=white) ![Swing](https://img.shields.io/badge/Swing-%23007ACC.svg?style=flat&logo=java&logoColor=white) ![Thread](https://img.shields.io/badge/Thread-%2343A047.svg?style=flat&logo=java&logoColor=white)|
-|   **Tools**    | ![Eclipse](https://img.shields.io/badge/Eclipse-%232C2255.svg?style=flat&logo=eclipseide&logoColor=white) ![STS4](https://img.shields.io/badge/STS4-%232C2255.svg?style=flat&logo=spring&logoColor=white) |
+| **Language**  |![Java](https://img.shields.io/badge/Java-%23ED8B00.svg?style=flat&logo=openjdk&logoColor=white) |
+| **Framework** |![Swing](https://img.shields.io/badge/Swing-%23007ACC.svg?style=flat&logo=java&logoColor=white) ![Thread](https://img.shields.io/badge/Thread-%2343A047.svg?style=flat&logo=java&logoColor=white)|
+| **IDE**       | ![Eclipse](https://img.shields.io/badge/Eclipse-%232C2255.svg?style=flat&logo=eclipseide&logoColor=white) ![STS4](https://img.shields.io/badge/STS4-green?style=flat&logo=spring&logoColor=white) |
+|   **Tools**    | ![Notion](https://img.shields.io/badge/-Notion-000000?logo=notion&logoColor=white) ![Git](https://img.shields.io/badge/-Git-F05032?logo=git&logoColor=white) |
 
 ---
 
